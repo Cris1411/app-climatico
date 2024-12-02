@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/clima-icono.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Climático</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <h1>Clima Actual</h1>
+        <form id="search-form">
+          <input 
+            type="text" 
+            id="city-input" 
+            placeholder="Ingresa una ciudad..."
+            required
+          >
+          <button type="submit">Buscar</button>
+        </form>
+        
+        <div id="weather-info" class="weather-container">
+          <div class="weather-header">
+            <h2 id="city-name"></h2>
+            <img id="weather-icon" src="" alt="Clima">
+          </div>
+          <div class="weather-details">
+            <p class="temperature">Temperatura: <span id="temperature"></span>°C</p>
+            <p class="description" id="weather-description"></p>
+            <p>Humedad: <span id="humidity"></span>%</p>
+            <p>Viento: <span id="wind-speed"></span> km/h</p>
+          </div>
+        </div>
+
+        <div id="error-message" class="error hidden"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
