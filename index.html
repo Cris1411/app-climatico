@@ -1,49 +1,52 @@
 <!doctype html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/clima-icono.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>App Climático</title>
+    <title>App Climática</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/src/style.css">
-  </head>
-  <body>
-    <div id="app">
-      <div class="container">
-        <h1>Clima Actual</h1>
-        <form id="search-form">
-          <input 
-            type="text" 
-            id="city-input" 
-            placeholder="Ingresa una ciudad..."
-            required
-          >
-          <button type="submit">Buscar</button>
-        </form>
-        
-        <div id="weather-info" class="weather-container">
-          <div class="weather-header">
-            <h2 id="city-name"></h2>
-            <img id="weather-icon" src="" alt="Clima">
-          </div>
-          <div class="weather-details">
-            <p class="temperature">Temperatura: <span id="temperature"></span>°C</p>
-            <p class="description" id="weather-description"></p>
-            <p>Humedad: <span id="humidity"></span>%</p>
-            <p>Viento: <span id="wind-speed"></span> km/h</p>
-          </div>
-        </div>
+</head>
 
-        <div id="error-message" class="error hidden"></div>
-      </div>
+<body>
+
+    <div id="aplicacion">
+        <div class="contenedor">
+
+            <h1>Clima Actual</h1>
+
+            <form id="formulario-busqueda">
+                <input type="text" id="entrada-ciudad" placeholder="Ingresa una ciudad..." required>
+                <button type="submit">Buscar</button>
+            </form>
+
+            <div id="clima-info" class="clima-contenedor">
+                <div class="clima-encabezado">
+                    <h2 id="nombre-ciudad"></h2>
+                    <img id="icono-clima" src="" alt="Clima">
+                </div>
+                <div class="clima-detalles">
+                    <p class="temperatura">Temperatura: <span id="temperatura"></span>°C</p>
+                    <p class="descripcion" id="descripcion-clima"></p>
+                    <p>Humedad: <span id="humedad"></span>%</p>
+                    <p>Viento: <span id="viento"></span> km/h</p>
+                </div>
+            </div>
+
+            <div id="mensaje-error" class="error oculto"></div>
+        </div>
     </div>
-    <footer class="footer">
-      <div class="footer-content">
-        <i class="fas fa-code"></i>
-        <p>Desarrollado por <span class="developer-name">Cristian Roberto Sanchez Canesin</span></p>
-      </div>
+
+    <footer class="pie">
+        <div class="contenido-pie">
+            <i class="fas fa-code"></i>
+            <p>Desarrollado por <span class="nombre-desarrollador">Cristian R. Sanchez</span></p>
+        </div>
     </footer>
+
     <script type="module" src="/src/main.js"></script>
-  </body>
+</body>
+
 </html>

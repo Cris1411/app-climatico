@@ -1,664 +1,726 @@
+/* Importación de estilos adicionales */
+@import 'estilos/footer.css';
+
+/* Reset y estilos base */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+/* Estilos del body y fondo principal */
 body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #00416A 0%, #E4E5E6 100%);
-  padding: 20px;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #00416A 0%, #E4E5E6 100%);
+    padding: 20px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    letter-spacing: 0.01em;
 }
 
-.container {
-  width: 100%;
-  max-width: 800px;
-  margin: 20px;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 24px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
-  transform: translateY(0);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Contenedor principal de la aplicación */
+.contenedor {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 28px;
+    box-shadow: 0 12px 40px rgba(0, 65, 106, 0.13);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transform: translateY(0);
+    transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
 }
 
-.container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
+.contenedor:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 60px rgba(0, 65, 106, 0.18);
+    background: rgba(255, 255, 255, 0.99);
 }
 
+/* Estilos de encabezados */
 h1 {
-  font-size: 2.5em;
-  color: #00416A;
-  text-align: center;
-  margin-bottom: 35px;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  letter-spacing: -0.5px;
+    font-size: 2.7em;
+    color: #00416A;
+    text-align: center;
+    margin-bottom: 35px;
+    font-weight: 800;
+    text-shadow: 2px 2px 8px rgba(0, 65, 106, 0.07);
+    letter-spacing: -0.5px;
 }
 
 h2 {
-  font-size: 2em;
-  color: #2a5298;
-  text-align: center;
-  margin-bottom: 25px;
+    font-size: 2em;
+    color: #2a5298;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 /* Estilos para la lista de países */
-.countries-list {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+.lista-paises {
+    background: rgba(255, 255, 255, 0.93);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 65, 106, 0.07);
+    padding: 8px 0;
 }
 
-.country-item {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(0, 65, 106, 0.1);
-  background: rgba(255, 255, 255, 0.95);
+.pais-item {
+    display: flex;
+    align-items: center;
+    padding: 16px 22px;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.18s, box-shadow 0.18s;
+    border-bottom: 1px solid rgba(0, 65, 106, 0.08);
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 12px;
+    margin: 6px 12px;
+    box-shadow: 0 1px 6px rgba(0, 65, 106, 0.04);
 }
 
-.country-item:last-child {
-  border-bottom: none;
+.pais-item:last-child {
+    border-bottom: none;
 }
 
-.country-item:hover {
-  background: rgba(0, 65, 106, 0.05);
-  transform: translateX(5px);
+.pais-item:hover {
+    background: rgba(0, 65, 106, 0.07);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 4px 16px rgba(0, 65, 106, 0.10);
 }
 
-.country-flag-wrapper {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+.bandera-pais-contenedor {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 18px;
+    background: rgba(255, 255, 255, 0.93);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
-.country-flag {
-  font-size: 2em;
+.bandera-pais {
+    font-size: 2.2em;
 }
 
-.country-info {
-  flex: 1;
+.info-pais {
+    flex: 1;
 }
 
-.country-name {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.nombre-pais {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.country-name h3 {
-  color: #00416A;
-  font-size: 1.1em;
-  margin: 0;
+.nombre-pais h3 {
+    color: #00416A;
+    font-size: 1.15em;
+    margin: 0;
+    font-weight: 700;
 }
 
-.country-name i {
-  color: #00416A;
-  font-size: 1.1em;
-  opacity: 0.8;
-  transition: all 0.3s ease;
+.nombre-pais i {
+    color: #00416A;
+    font-size: 1.1em;
+    opacity: 0.8;
+    transition: all 0.3s ease;
 }
 
-.country-item:hover .country-name i {
-  opacity: 1;
-  transform: scale(1.1);
+.pais-item:hover .nombre-pais i {
+    opacity: 1;
+    transform: scale(1.13);
 }
 
-.city-name {
-  color: #666;
-  font-size: 0.9em;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.nombre-ciudad {
+    color: #666;
+    font-size: 0.98em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 2px;
 }
 
-.city-name i {
-  color: #00416A;
-  font-size: 0.9em;
+.nombre-ciudad i {
+    color: #00416A;
+    font-size: 0.98em;
 }
 
-.country-action {
-  color: #00416A;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
+.accion-pais {
+    color: #00416A;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
 }
 
-.country-item:hover .country-action {
-  opacity: 1;
-  transform: translateX(0);
+.pais-item:hover .accion-pais {
+    opacity: 1;
+    transform: translateX(0);
 }
 
-.location-info {
-  margin: 10px 0;
-  padding: 5px 0;
+.info-ubicacion {
+    margin: 10px 0;
+    padding: 5px 0;
 }
 
-.continent {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #4a90e2;
-  font-size: 1.1em;
+.continente {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4a90e2;
+    font-size: 1.1em;
 }
 
-.continent i {
-  color: #4a90e2;
+.continente i {
+    color: #4a90e2;
 }
 
-.continent-name {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.9em;
-  color: #666;
+.nombre-continente {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.95em;
+    color: #666;
 }
 
-.continent-name i {
-  font-size: 0.9em;
-  color: #4a90e2;
+.nombre-continente i {
+    font-size: 0.95em;
+    color: #4a90e2;
 }
 
 /* Tooltip personalizado */
 [title] {
-  position: relative;
-  cursor: help;
+    position: relative;
+    cursor: help;
 }
 
 [title]:hover::after {
-  content: attr(title);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 5px 10px;
-  background: rgba(0, 65, 106, 0.9);
-  color: white;
-  border-radius: 4px;
-  font-size: 0.8em;
-  white-space: nowrap;
-  z-index: 10;
-  pointer-events: none;
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background: rgba(0, 65, 106, 0.9);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
 }
 
 /* Media Queries para pantallas más grandes */
 @media (min-width: 768px) {
-  .countries-list {
-    max-height: 600px;
-    overflow-y: auto;
-  }
+    .lista-paises {
+        max-height: 600px;
+        overflow-y: auto;
+    }
 
-  .countries-list::-webkit-scrollbar {
-    width: 8px;
-  }
+    .lista-paises::-webkit-scrollbar {
+        width: 8px;
+    }
 
-  .countries-list::-webkit-scrollbar-track {
-    background: rgba(0, 65, 106, 0.05);
-    border-radius: 4px;
-  }
+    .lista-paises::-webkit-scrollbar-track {
+        background: rgba(0, 65, 106, 0.05);
+        border-radius: 4px;
+    }
 
-  .countries-list::-webkit-scrollbar-thumb {
-    background: rgba(0, 65, 106, 0.2);
-    border-radius: 4px;
-  }
+    .lista-paises::-webkit-scrollbar-thumb {
+        background: rgba(0, 65, 106, 0.2);
+        border-radius: 4px;
+    }
 
-  .countries-list::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 65, 106, 0.3);
-  }
+    .lista-paises::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 65, 106, 0.3);
+    }
 
-  .country-item {
-    padding: 20px 25px;
-  }
+    .pais-item {
+        padding: 20px 25px;
+    }
 
-  .country-flag-wrapper {
-    width: 60px;
-    height: 60px;
-    margin-right: 20px;
-  }
+    .bandera-pais-contenedor {
+        width: 60px;
+        height: 60px;
+        margin-right: 20px;
+    }
 
-  .country-flag {
-    font-size: 2.5em;
-  }
+    .bandera-pais {
+        font-size: 2.5em;
+    }
 
-  .country-info h3 {
-    font-size: 1.2em;
-    margin-bottom: 8px;
-  }
+    .info-pais h3 {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
 
-  .city-name {
-    font-size: 1em;
-  }
+    .nombre-ciudad {
+        font-size: 1em;
+    }
 
-  .country-name h3 {
-    font-size: 1.2em;
-  }
+    .nombre-pais h3 {
+        font-size: 1.2em;
+    }
 
-  .country-name i {
-    font-size: 1.2em;
-  }
+    .nombre-pais i {
+        font-size: 1.2em;
+    }
 }
 
 /* Ajustes adicionales para pantallas muy grandes */
 @media (min-width: 1200px) {
-  .country-item {
-    padding: 25px 30px;
-  }
+    .pais-item {
+        padding: 25px 30px;
+    }
 
-  .country-flag-wrapper {
-    width: 70px;
-    height: 70px;
-  }
+    .bandera-pais-contenedor {
+        width: 70px;
+        height: 70px;
+    }
 
-  .country-flag {
-    font-size: 3em;
-  }
+    .bandera-pais {
+        font-size: 3em;
+    }
 
-  .country-info h3 {
-    font-size: 1.3em;
-  }
+    .info-pais h3 {
+        font-size: 1.3em;
+    }
 
-  .city-name {
-    font-size: 1.1em;
-  }
+    .nombre-ciudad {
+        font-size: 1.1em;
+    }
 
-  .country-name h3 {
-    font-size: 1.3em;
-  }
+    .nombre-pais h3 {
+        font-size: 1.3em;
+    }
 
-  .country-name i {
-    font-size: 1.3em;
-  }
+    .nombre-pais i {
+        font-size: 1.3em;
+    }
 }
 
 /* Formulario de búsqueda */
-#search-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
+/* Estilos del formulario de búsqueda */
+#formulario-busqueda {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
-#city-input {
-  flex: 1;
-  padding: 15px 20px;
-  border: 2px solid #e1e5e9;
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.9);
+#entrada-ciudad {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
 }
 
-#city-input:focus {
-  outline: none;
-  border-color: #00416A;
-  box-shadow: 0 0 0 3px rgba(0, 65, 106, 0.1);
+#entrada-ciudad:focus {
+    outline: none;
+    border-color: #00416A;
+    box-shadow: 0 0 0 3px rgba(0, 65, 106, 0.1);
 }
 
 button {
-  padding: 15px 30px;
-  background: #00416A;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    padding: 15px 30px;
+    background: #00416A;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-  background: #005688;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 65, 106, 0.2);
+    background: #005688;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 65, 106, 0.2);
 }
 
 button i {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
-.weather-container {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  padding: 30px;
-  margin-top: 30px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+.clima-contenedor {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 20px;
+    padding: 32px 28px 32px 28px;
+    margin-top: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: box-shadow 0.3s, background 0.3s;
 }
 
-.weather-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 30px;
+.clima-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
 }
 
-#weather-icon {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
+#icono-clima {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 65, 106, 0.10));
 }
 
-.weather-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 16px;
-  backdrop-filter: blur(5px);
+.clima-detalles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 16px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    margin-bottom: 18px;
 }
 
-.weather-details p {
-  font-size: 1.1rem;
-  color: #444;
-  padding: 15px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.clima-detalles p {
+    font-size: 1.13rem;
+    color: #444;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
 }
 
-.weather-details i {
-  font-size: 1.3rem;
-  width: 24px;
-  color: #00416A;
+.clima-detalles p:hover {
+    transform: translateY(-2px);
+    background: #f0f6fa;
 }
 
-.weather-details p:hover {
-  transform: translateY(-2px);
+.clima-detalles i {
+    font-size: 1.3rem;
+    width: 24px;
+    color: #00416A;
 }
 
-.temperature {
-  font-size: 1.3rem !important;
-  font-weight: 600;
-  color: #00416A !important;
+.temperatura {
+    font-size: 1.35rem !important;
+    font-weight: 700;
+    color: #00416A !important;
 }
 
-.description {
-  text-transform: capitalize;
+.descripcion {
+    text-transform: capitalize;
 }
 
 .error {
-  background: #fee;
-  color: #e33;
-  padding: 15px 20px;
-  border-radius: 12px;
-  margin-top: 20px;
-  text-align: center;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
+    background: #fee;
+    color: #e33;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
 }
 
 .error i {
-  font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 .error.show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.hidden {
-  display: none;
+.oculto {
+    display: none;
 }
 
+/* Media Queries - Responsive Design */
 @media screen and (max-width: 480px) {
-  .container {
-    padding: 20px;
-    margin: 10px;
-  }
+    .contenedor {
+        padding: 20px;
+        margin: 10px;
+    }
 
-  .country-item {
-    padding: 12px 15px;
-  }
+    .pais-item {
+        padding: 12px 15px;
+    }
 
-  .country-flag-wrapper {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
+    .bandera-pais-contenedor {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
 
-  .country-flag {
-    font-size: 1.5em;
-  }
+    .bandera-pais {
+        font-size: 1.5em;
+    }
 
-  .country-name h3 {
-    font-size: 1em;
-  }
+    .nombre-pais h3 {
+        font-size: 1em;
+    }
 
-  .city-name {
-    font-size: 0.85em;
-  }
+    .nombre-ciudad {
+        font-size: 0.85em;
+    }
 
-  .location-info {
-    margin: 8px 0;
-  }
+    .info-ubicacion {
+        margin: 8px 0;
+    }
 
-  .continent {
-    font-size: 0.95em;
-  }
+    .continente {
+        font-size: 0.95em;
+    }
 
-  .continent-name {
-    font-size: 0.85em;
-  }
+    .nombre-continente {
+        font-size: 0.85em;
+    }
 
-  .countries-list {
-    margin: 10px 0;
-  }
+    .lista-paises {
+        margin: 10px 0;
+    }
 
-  .country-info {
-    flex: 1;
-    min-width: 0; /* Evita que el contenido se desborde */
-  }
+    .info-pais {
+        flex: 1;
+        min-width: 0;
+        /* Evita que el contenido se desborde */
+    }
 
-  .country-name {
-    flex-wrap: wrap;
-  }
+    .nombre-pais {
+        flex-wrap: wrap;
+    }
 }
 
 @media (max-width: 600px) {
-  .container {
-    padding: 25px;
-    margin: 10px;
-  }
+    .contenedor {
+        padding: 25px;
+        margin: 10px;
+    }
 
-  h1 {
-    font-size: 2em;
-  }
+    h1 {
+        font-size: 2em;
+    }
 
-  #search-form {
-    flex-direction: column;
-  }
+    #formulario-busqueda {
+        flex-direction: column;
+    }
 
-  button {
-    width: 100%;
-  }
+    button {
+        width: 100%;
+    }
 
-  .weather-details {
-    grid-template-columns: 1fr;
-  }
+    .clima-detalles {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Media Queries para pantallas más grandes */
 @media (min-width: 768px) {
-  .container {
-    max-width: 1200px;
-    padding: 40px 60px;
-  }
+    .contenedor {
+        max-width: 1200px;
+        padding: 40px 60px;
+    }
 
-  /* Layout de dos columnas para el contenido principal */
-  .content-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-  }
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: stretch;
+        min-height: 480px;
+    }
 
-  /* Ajustes para el formulario de búsqueda */
-  #search-form {
-    max-width: 600px;
-    margin: 0 auto 40px;
-  }
+    .clima-contenedor {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.97);
+        border-radius: 20px;
+        padding-bottom: 32px;
+    }
 
-  /* Ajustes para la información del clima */
-  .weather-container {
-    margin-top: 0;
-    height: 100%;
-  }
+    .seccion-paises {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: rgba(255, 255, 255, 0.97);
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        padding: 32px 24px 24px 24px;
+        min-width: 0;
+    }
 
-  .weather-header {
-    margin-bottom: 40px;
-  }
+    .separador {
+        margin-bottom: 24px;
+    }
 
-  .weather-header img {
-    width: 100px;
-    height: 100px;
-  }
+    #paises-populares {
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0;
+    }
 
-  .weather-details {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
+    /* Ajustes para el formulario de búsqueda */
+    #formulario-busqueda {
+        max-width: 600px;
+        margin: 0 auto 40px;
+    }
 
-  .weather-details p {
-    padding: 20px;
-    font-size: 1.2rem;
-  }
+    /* Ajustes para la información del clima */
+    .clima-encabezado {
+        margin-bottom: 40px;
+    }
 
-  .weather-details i {
-    font-size: 1.5rem;
-  }
+    .clima-encabezado img {
+        width: 100px;
+        height: 100px;
+    }
 
-  /* Ajustes para la sección de países populares */
-  #popular-countries {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 25px;
-  }
+    .clima-detalles {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
 
-  .country-card {
-    padding: 25px;
-  }
+    .clima-detalles p {
+        padding: 20px;
+        font-size: 1.2rem;
+    }
 
-  .country-flag {
-    font-size: 3.5em;
-  }
+    .clima-detalles i {
+        font-size: 1.5rem;
+    }
 
-  .country-card h3 {
-    font-size: 1.3em;
-    margin: 15px 0 10px;
-  }
+    /* Ajustes para la sección de países populares */
+    #popular-countries {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 25px;
+    }
 
-  /* Ajustes para el separador */
-  .separator {
-    margin: 60px 0 30px;
-  }
+    .country-card {
+        padding: 25px;
+    }
 
-  .separator h2 {
-    font-size: 2rem;
-  }
+    .bandera-pais {
+        font-size: 3.5em;
+    }
 
-  .separator h2::before,
-  .separator h2::after {
-    width: 150px;
-  }
+    .country-card h3 {
+        font-size: 1.3em;
+        margin: 15px 0 10px;
+    }
+
+    /* Ajustes para el separador */
+    .separator {
+        margin: 60px 0 30px;
+    }
+
+    .separator h2 {
+        font-size: 2rem;
+    }
+
+    .separator h2::before,
+    .separator h2::after {
+        width: 150px;
+    }
 }
 
 /* Ajustes adicionales para pantallas muy grandes */
 @media (min-width: 1200px) {
-  .container {
-    padding: 50px 80px;
-  }
+    .contenedor {
+        padding: 20px 70px;
+    }
 
-  .content-wrapper {
-    gap: 60px;
-  }
+    .contenido-principal {
+        gap: 60px;
+    }
 
-  .weather-details p {
-    padding: 25px;
-    font-size: 1.3rem;
-  }
+    .clima-detalles p {
+        padding: 25px;
+        font-size: 1.3rem;
+    }
 
-  #popular-countries {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-  }
+    #popular-countries {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+    }
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  padding: 15px;
-  background: rgba(0, 65, 106, 0.95);
-  color: #ffffff;
-  backdrop-filter: blur(10px);
-  z-index: 1000;
+
+/* Estilos para el pronóstico del tiempo */
+.pronostico-contenedor {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  max-width: 800px;
-  margin: 0 auto;
+.tarjeta-pronostico {
+    background: rgba(255, 255, 255, 0.99);
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 65, 106, 0.08);
+    padding: 18px 14px;
+    min-width: 110px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    border: 1.5px solid #e1e5e9;
 }
 
-.footer i {
-  font-size: 1.2em;
-  color: #4a90e2;
+.tarjeta-pronostico:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 6px 18px rgba(0, 65, 106, 0.13);
+    background: #f0f6fa;
 }
 
-.footer p {
-  margin: 0;
-  font-size: 1em;
-  font-weight: 400;
-  letter-spacing: 0.3px;
+.tarjeta-pronostico img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 8px rgba(0, 65, 106, 0.10));
 }
 
-.developer-name {
-  font-weight: 600;
-  color: #4a90e2;
+.tarjeta-pronostico h5 {
+    margin: 0 0 6px 0;
+    font-size: 1.1em;
+    color: #00416A;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 
-@media screen and (max-width: 480px) {
-  .footer {
-    padding: 12px;
-  }
+.tarjeta-pronostico p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #2a5298;
+    font-weight: 500;
+}
 
-  .footer p {
-    font-size: 0.9em;
-  }
-
-  .footer-content {
-    gap: 8px;
-  }
+.tarjeta-pronostico small {
+    color: #666;
+    margin-top: 4px;
 }
