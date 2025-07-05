@@ -221,7 +221,7 @@ h2 {
 /* Media Queries para pantallas más grandes */
 @media (min-width: 768px) {
     .lista-paises {
-        max-height: 600px;
+        max-height: 1000px; /* Aumentado para que se vea todo el contenido */
         overflow-y: auto;
     }
 
